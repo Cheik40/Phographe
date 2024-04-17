@@ -1,6 +1,8 @@
+import { useState } from "react";
 import { Outlet, Link } from "react-router-dom";
 
 function Layout() {
+    const [project, setProject] = useState("");
     const listProject = [
         { label: "" },
         { name: "projet" },
@@ -12,9 +14,9 @@ function Layout() {
     const handlChangeProject = (e) => {
         e.preventDefault();
         let target = "/" + e.value;
-        console.log("e.value" + e.value);
+        console.log("e.value" + setProject(() => e.value));
         //   return <Link to={target}>{target}</Link>;
-        return <Link to={target}>{e.value}</Link>;
+        return <Link to={target}>{project}</Link>;
     };
 
     return (
